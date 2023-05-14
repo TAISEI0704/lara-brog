@@ -37,4 +37,13 @@ class PostController extends Controller
 
         return redirect()->route('posts.index');
     }
+
+    //$idはindex.blade.phpから送られてきたid
+    function show($id)
+    {
+        // dd($id);
+        $post = Post::find($id);
+
+        return view('posts.show',['post'=>$post]);
+    }
 }
